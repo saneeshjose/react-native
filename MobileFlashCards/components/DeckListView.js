@@ -9,7 +9,6 @@ class DeckListView extends React.Component {
   render() {
 
     const {decks} = this.props;
-
     return <View style={styles.container}>
       {Object.keys(decks).map( key => (
         <TouchableHighlight key={key} style={styles.itemContainer} onPress={()=>{

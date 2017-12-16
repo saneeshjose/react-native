@@ -13,11 +13,7 @@ class QuizView extends Component {
 
     const {deck, showQuestion} = this.props.navigation.state.params;
 
-    console.log(this.props.navigation.state.params);
-
     return <View style={styles.container}>
-
-
     {this.state.answerShown? (
       <View>
         <Text style={styles.h2}>{deck.questions[showQuestion].answer}</Text>
@@ -53,7 +49,6 @@ class QuizView extends Component {
     result?++c:++i;
 
     if ( deck.questions.length === nextIndex ) {
-      console.log("No more questions. Show the score");
       this.props.navigation.navigate('ScoreView', {
         deck : deck,
         correct : c,

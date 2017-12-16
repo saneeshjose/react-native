@@ -10,9 +10,9 @@ import ScoreView from './components/ScoreView'
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
 
-import reducer from './reducers/reducer.js'
+import decks from './reducers/decks.js'
 
-const store = createStore(reducer, {
+const store = createStore(decks, {
   React: {
     title: 'React',
     questions: [

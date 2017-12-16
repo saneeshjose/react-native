@@ -16,7 +16,7 @@ class DeckView extends React.Component {
 
       <TouchableHighlight style={[styles.touchableMedium,styles.touchableDefault]} onPress={()=>{
         this.props.navigation.navigate('AddQuestionView', {
-          deckKey : deck.title
+          deck : deck
         })
       }}>
         <View>

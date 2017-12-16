@@ -9,8 +9,6 @@ class ScoreView extends React.Component {
 
     const {correct, incorrect,deck} = this.props.navigation.state.params;
 
-    console.log('Rendering ScoreView');
-
     return <View style={styles.container}>
       <Text style={[styles.h3]}>Correct : {correct} </Text>
       <Text style={[styles.h3]}>Incorrect : {incorrect} </Text>
