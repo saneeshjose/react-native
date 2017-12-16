@@ -16,6 +16,7 @@ export default function decks(state = {}, action ) {
 
       const {title} = action.deck;
       let s = {
+        ...state,
         [title] : {
           "title" : title,
           "questions" : [
@@ -24,7 +25,7 @@ export default function decks(state = {}, action ) {
           ]
         }
       }
-      
+
       return s;
 
     default:

@@ -6,21 +6,30 @@ import {styles} from '../styles'
 
 class AddQuestionView extends Component {
 
+  state = {
+    question : '',
+    answer : ''
+  }
+
   render() {
 
     return <View style={styles.container}>
-    <TextInput placeholder="Question here" style={styles.textInput}/>
-    <TextInput placeholder="Answer here" style={styles.textInput}/>
-    <TouchableHighlight style={[styles.touchableSmall,styles.touchableDefault]} onPress={this.addQuestion}>
-      <Text>Submit</Text>
-    </TouchableHighlight>
+      <TextInput placeholder="Question here" style={styles.textInput} value={this.state.question} onChangeText={(text)=>this.setState({
+        question : text
+      })}/>
+      <TextInput placeholder="Answer here" style={styles.textInput} value={this.state.answer} onChangeText={(text)=>this.setState({
+        answer : text
+      })}/>
+      <TouchableHighlight style={[styles.touchableSmall,styles.touchableDefault]} onPress={this.addQuestion}>
+        <Text>Submit</Text>
+      </TouchableHighlight>
     </View>
   }
 
   addQuestion = ()=>{
     this.props.dispatch(addQuestion(this.props.deck,{
-      question : 'Who am I?',
-      answer : 'Bruce Lee'
+      question : this.state.question,
+      answer : this.state.answer
     }));
     this.props.navigation.navigate('DeckView', {deck:this.props.deck.title});
   }
