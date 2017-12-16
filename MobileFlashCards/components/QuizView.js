@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {View, Text, StyleSheet, TextInput, TouchableHighlight} from 'react-native'
 
+import {styles} from '../styles'
+
 class QuizView extends Component {
 
   state = {
@@ -47,7 +49,7 @@ class QuizView extends Component {
     const {deck, showQuestion, correct, incorrect} = this.props.navigation.state.params;
     let nextIndex = showQuestion + 1;
     let c=correct,i=incorrect;
-    
+
     result?++c:++i;
 
     if ( deck.questions.length === nextIndex ) {
@@ -68,36 +70,4 @@ class QuizView extends Component {
     }
   }
 }
-
-const styles = StyleSheet.create( {
-  container : {
-    flex : 1,
-    flexDirection : 'column',
-    justifyContent : 'center',
-    alignItems : 'center',
-    paddingTop : 32,
-    paddingRight : 32,
-    paddingLeft : 32,
-    backgroundColor : '#7ae2c3'
-  },
-  textInput : {
-    padding : 16,
-    backgroundColor : '#eeeeee',
-    width : 300,
-    borderRadius : 6,
-    marginBottom : 10
-  },
-  submitBtn : {
-    padding : 16,
-    borderRadius : 6,
-    backgroundColor : '#cccccc'
-  },
-  answerBtn : {
-    padding : 16
-  },
-  text : {
-    fontSize : 18
-  }
-});
-
 export default QuizView;
