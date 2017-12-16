@@ -19,26 +19,50 @@ export const styles = StyleSheet.create({
     borderRadius : 12,
     marginBottom : 12,
     margin : 5,
-    padding : 12
+    padding : 12,
+    width : 350
   },
 
   h1 : {
     textAlign : 'center',
-    fontSize : 64
+    fontSize : 64,
+    padding : 16
   },
 
   h2 : {
     textAlign : 'center',
-    fontSize : 32
+    fontSize : 32,
+    padding : 8
   },
 
   h3 : {
     textAlign : 'center',
-    fontSize : 16
+    fontSize : 16,
+    padding : 8
   },
 
+  touchableMedium : {
+    borderWidth : 2,
+    borderRadius : 12,
+    padding : 12,
+    marginBottom :12
+  },
+
+  touchableDefault : {
+    backgroundColor : 'grey'
+  },
+
+  touchableSuccess : {
+    backgroundColor : 'green'
+  },
+
+  touchableDanger : {
+    backgroundColor : 'red'
+  },
 
   //DeckList
+
+
   addBtn : {
     borderStyle : 'solid',
     borderWidth : 2,

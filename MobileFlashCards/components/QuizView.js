@@ -20,25 +20,25 @@ class QuizView extends Component {
 
     {this.state.answerShown? (
       <View>
-        <Text style={styles.question}>{deck.questions[showQuestion].answer}</Text>
-        <TouchableHighlight style={styles.answerBtn} onPress={()=>this.setState({answerShown:false})}>
-          <Text>Question</Text>
+        <Text style={styles.h2}>{deck.questions[showQuestion].answer}</Text>
+        <TouchableHighlight onPress={()=>this.setState({answerShown:false})}>
+          <Text style={styles.h3}>Question</Text>
         </TouchableHighlight>
       </View>
     )  : (
       <View>
-        <Text style={styles.question}>{deck.questions[showQuestion].question}</Text>
-        <TouchableHighlight style={styles.answerBtn} onPress={()=>this.setState({answerShown:true})}>
-          <Text>Answer</Text>
+        <Text style={styles.h2}>{deck.questions[showQuestion].question}</Text>
+        <TouchableHighlight onPress={()=>this.setState({answerShown:true})}>
+          <Text style={styles.h3}>Answer</Text>
         </TouchableHighlight>
       </View>
     )}
 
-    <TouchableHighlight style={styles.submitBtn} onPress={()=>{this.nextQuestion(true)}}>
+    <TouchableHighlight style={[styles.touchableMedium,styles.touchableSuccess]} onPress={()=>{this.nextQuestion(true)}}>
       <Text>Correct</Text>
     </TouchableHighlight>
 
-    <TouchableHighlight style={styles.submitBtn} onPress={()=>{this.nextQuestion(false)}}>
+    <TouchableHighlight style={[styles.touchableMedium,styles.touchableDanger]} onPress={()=>{this.nextQuestion(false)}}>
       <Text>Incorrect</Text>
     </TouchableHighlight>
     </View>

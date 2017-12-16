@@ -12,16 +12,16 @@ class ScoreView extends React.Component {
     console.log('Rendering ScoreView');
 
     return <View style={styles.container}>
-      <Text>Correct : {correct} </Text>
-      <Text>Incorrect : {incorrect} </Text>
+      <Text style={[styles.h3]}>Correct : {correct} </Text>
+      <Text style={[styles.h3]}>Incorrect : {incorrect} </Text>
 
-      <TouchableHighlight style={styles.btn} onPress={()=>{
+      <TouchableHighlight style={[styles.touchableMedium, styles.touchableDefault]} onPress={()=>{
         this.props.navigation.navigate( 'DeckView', {deck:deck.title});
       }}>
         <Text>Back to Deck</Text>
       </TouchableHighlight>
 
-      <TouchableHighlight style={styles.btn} onPress={()=>{
+      <TouchableHighlight style={[styles.touchableMedium, styles.touchableDefault]} onPress={()=>{
         this.props.navigation.navigate('QuizView', {
           deck : deck,
           showQuestion : 0,

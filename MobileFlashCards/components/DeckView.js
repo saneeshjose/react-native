@@ -14,7 +14,7 @@ class DeckView extends React.Component {
       <Text style={styles.h1}>{deck.title}</Text>
       <Text style={styles.h3}>{deck.questions.length} cards</Text>
 
-      <TouchableHighlight style={styles.addBtn} onPress={()=>{
+      <TouchableHighlight style={[styles.touchableMedium,styles.touchableDefault]} onPress={()=>{
         this.props.navigation.navigate('AddQuestionView', {
           deckKey : deck.title
         })
@@ -24,7 +24,7 @@ class DeckView extends React.Component {
         </View>
       </TouchableHighlight>
 
-      <TouchableHighlight style={styles.startBtn} onPress={()=>{
+      <TouchableHighlight style={styles.touchableMedium} onPress={()=>{
         this.props.navigation.navigate('QuizView', {
           deck : deck,
           showQuestion : 0,
