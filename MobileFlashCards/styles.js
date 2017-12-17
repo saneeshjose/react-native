@@ -3,19 +3,19 @@ import {StyleSheet} from 'react-native'
 export const styles = StyleSheet.create({
 
   container : {
-    backgroundColor : 'white',
     flex : 1,
     flexDirection : 'column',
     justifyContent : 'center',
     alignItems: 'center',
-    backgroundColor : '#7ae2c3'
+    //backgroundColor : '#7ae2c3',
+    backgroundColor : '#d6fff2'
   },
 
   itemContainer : {
     borderStyle : 'solid',
-    borderColor : 'grey',
-    backgroundColor : '#eeeeee',
-    borderWidth : 2,
+    borderColor : '#efefef',
+    backgroundColor : '#ffffff',
+    borderWidth : 1,
     borderRadius : 12,
     marginBottom : 12,
     margin : 5,
@@ -42,10 +42,11 @@ export const styles = StyleSheet.create({
   },
 
   touchableMedium : {
-    borderWidth : 2,
+    borderWidth : 1,
     borderRadius : 12,
     padding : 12,
-    marginBottom :12
+    marginBottom :12,
+    borderColor : '#bafce7'
   },
   touchableSmall : {
     padding : 16,
@@ -54,7 +55,8 @@ export const styles = StyleSheet.create({
   },
 
   touchableDefault : {
-    backgroundColor : 'grey'
+    backgroundColor : '#32bc91',
+    borderColor : '#bafce7'
   },
   touchableSuccess : {
     backgroundColor : 'green'
@@ -65,8 +67,17 @@ export const styles = StyleSheet.create({
 
   textInput : {
     padding : 16,
-    backgroundColor : '#eeeeee',
+    backgroundColor : '#ffffff',
     width : 300,
+    borderRadius : 6,
+    marginBottom : 10
+  },
+
+  textAreaInput : {
+    padding : 16,
+    backgroundColor : '#ffffff',
+    width : 300,
+    height : 140,
     borderRadius : 6,
     marginBottom : 10
   },

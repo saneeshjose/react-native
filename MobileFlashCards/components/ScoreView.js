@@ -14,7 +14,7 @@ class ScoreView extends React.Component {
       <Text style={[styles.h3]}>Incorrect : {incorrect} </Text>
 
       <TouchableHighlight style={[styles.touchableMedium, styles.touchableDefault]} onPress={()=>{
-        this.props.navigation.navigate( 'DeckView', {deck:deck.title});
+        this.props.navigation.navigate('DeckView', {deck:deck.title});
       }}>
         <Text>Back to Deck</Text>
       </TouchableHighlight>

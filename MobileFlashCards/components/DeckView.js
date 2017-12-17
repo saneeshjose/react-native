@@ -15,16 +15,6 @@ class DeckView extends React.Component {
       <Text style={styles.h3}>{deck.questions.length} cards</Text>
 
       <TouchableHighlight style={[styles.touchableMedium,styles.touchableDefault]} onPress={()=>{
-        this.props.navigation.navigate('AddQuestionView', {
-          deck : deck
-        })
-      }}>
-        <View>
-          <Text style={styles.btnText}>Add Card</Text>
-        </View>
-      </TouchableHighlight>
-
-      <TouchableHighlight style={styles.touchableMedium} onPress={()=>{
         this.props.navigation.navigate('QuizView', {
           deck : deck,
           showQuestion : 0,
@@ -33,14 +23,27 @@ class DeckView extends React.Component {
         })
       }}>
         <View>
-          <Text style={styles.btnText}>Start Quiz</Text>
+          <Text style={styles.btnText}>Start a Quiz</Text>
         </View>
       </TouchableHighlight>
+
+      <TouchableHighlight style={[styles.touchableMedium]} onPress={()=>{
+        this.props.navigation.navigate('AddQuestionView', {
+          deck : deck
+        })
+      }}>
+        <View>
+          <Text style={styles.btnText}>Create New Question</Text>
+        </View>
+      </TouchableHighlight>
+
     </View>
   }
 }
 
 function mapStateToProps (state, ownProps) {
+
+  console.log(ownProps.navigation);
 
   const deckKey = ownProps.navigation.state.params.deck;
   return {

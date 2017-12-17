@@ -17,9 +17,9 @@ class AddQuestionView extends Component {
       <TextInput placeholder="Question here" style={styles.textInput} value={this.state.question} onChangeText={(text)=>this.setState({
         question : text
       })}/>
-      <TextInput placeholder="Answer here" style={styles.textInput} value={this.state.answer} onChangeText={(text)=>this.setState({
+      <TextInput placeholder="Answer here" style={styles.textAreaInput} value={this.state.answer} onChangeText={(text)=>this.setState({
         answer : text
-      })}/>
+      })} multiline={true} numberOfLines={4}/>
       <TouchableHighlight style={[styles.touchableSmall,styles.touchableDefault]} onPress={this.addQuestion}>
         <Text>Submit</Text>
       </TouchableHighlight>

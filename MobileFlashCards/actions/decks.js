@@ -10,6 +10,6 @@ export const addQuestion = (deck, question)=>({
 })
 
 export const addDeck = (title)=>({
-  type : ADD_QUESTION,
+  type : ADD_DECK,
   title
 })

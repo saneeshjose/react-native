@@ -1,14 +1,17 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, StatusBar, TouchableHighlight} from 'react-native'
 import {StackNavigator} from 'react-navigation'
 import DeckListView from './components/DeckListView'
 import DeckView from './components/DeckView'
 import AddQuestionView from './components/AddQuestionView'
 import QuizView from './components/QuizView'
 import ScoreView from './components/ScoreView'
+import AddDeckView from './components/AddDeckView'
 
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
+import {Constants} from 'expo'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import decks from './reducers/decks.js'
 
@@ -42,23 +45,71 @@ const Stack = StackNavigator({
     screen : DeckListView
   },
   DeckView : {
-    screen : DeckView
+    screen : DeckView,
+    navigationOptions : {
+      title : 'Deck',
+      headerStyle : {
+        backgroundColor : '#a2f2d8'
+      }
+    }
   },
+
+  AddDeckView : {
+    screen : AddDeckView,
+    navigationOptions : {
+      title : 'Add Deck',
+      headerStyle : {
+        backgroundColor : '#a2f2d8'
+      }
+    }
+  },
+
   AddQuestionView : {
-    screen : AddQuestionView
+    screen : AddQuestionView,
+    navigationOptions : {
+      title : 'Add Question',
+      headerStyle : {
+        backgroundColor : '#a2f2d8'
+      }
+    }
   },
   QuizView : {
-    screen : QuizView
+    screen : QuizView,
+    navigationOptions : {
+      title : 'Quiz',
+      headerStyle : {
+        backgroundColor : '#a2f2d8'
+      }
+    }
   },
   ScoreView : {
-    screen : ScoreView
+    screen : ScoreView,
+    navigationOptions : {
+      title : 'Score Card',
+      headerStyle : {
+        backgroundColor : '#a2f2d8'
+      }
+    }
   }
 })
 
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={store}><Stack/></Provider>
+      <Provider store={store}>
+        <View style={{
+          flex:1
+        }}>
+          <View style={{
+            backgroundColor : '#32bc91',
+            height : Constants.statusBarHeight
+          }}>
+            <StatusBar backgroundColor="#32bc91" barStyle="light-content" />
+          </View>
+          <Stack/>
+        </View>
+
+      </Provider>
     )
   }
 }

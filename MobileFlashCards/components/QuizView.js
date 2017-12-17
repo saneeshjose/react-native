@@ -11,21 +11,25 @@ class QuizView extends Component {
 
   render() {
 
-    const {deck, showQuestion} = this.props.navigation.state.params;
+    const {deck, showQuestion, correct, incorrect} = this.props.navigation.state.params;
+
+    { if ( deck.questions.length === 0) return <Text style={styles.h3}>No cards</Text> }
 
     return <View style={styles.container}>
+    <Text>{correct+incorrect+1} / {deck.questions.length}</Text>
+
     {this.state.answerShown? (
       <View>
         <Text style={styles.h2}>{deck.questions[showQuestion].answer}</Text>
         <TouchableHighlight onPress={()=>this.setState({answerShown:false})}>
-          <Text style={styles.h3}>Question</Text>
+          <Text style={styles.h3}>Show Question</Text>
         </TouchableHighlight>
       </View>
     )  : (
       <View>
         <Text style={styles.h2}>{deck.questions[showQuestion].question}</Text>
         <TouchableHighlight onPress={()=>this.setState({answerShown:true})}>
-          <Text style={styles.h3}>Answer</Text>
+          <Text style={styles.h3}>Show Answer</Text>
         </TouchableHighlight>
       </View>
     )}
@@ -38,6 +42,7 @@ class QuizView extends Component {
       <Text>Incorrect</Text>
     </TouchableHighlight>
     </View>
+
   }
 
   nextQuestion = (result) => {
