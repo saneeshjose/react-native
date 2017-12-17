@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {View, Text, StyleSheet, TextInput, TouchableHighlight} from 'react-native'
 import {connect} from 'react-redux'
+import {NavigationActions} from 'react-navigation'
+
 import {addQuestion} from '../actions/decks'
 import {styles} from '../styles'
 
@@ -9,6 +11,21 @@ class AddQuestionView extends Component {
   state = {
     question : '',
     answer : ''
+  }
+
+  backToDeck = (deck) => {
+    this.props.navigation.dispatch(NavigationActions.reset({
+      index : 1,
+      actions : [
+        NavigationActions.navigate({
+          routeName:'DeckListView'
+        }),
+        NavigationActions.navigate({
+          routeName:'DeckView',
+          params : {deck}
+        }),
+      ]
+    }));
   }
 
   render() {
@@ -31,7 +48,8 @@ class AddQuestionView extends Component {
       question : this.state.question,
       answer : this.state.answer
     }));
-    this.props.navigation.navigate('DeckView', {deck:this.props.deck.title});
+
+    this.backToDeck(this.props.deck);
   }
 }
 

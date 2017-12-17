@@ -1,9 +1,50 @@
 import React from 'react'
 import {View,Text,StyleSheet,TouchableHighlight} from 'react-native'
+import {NavigationActions} from 'react-navigation'
 
 import {styles} from '../styles'
 
 class ScoreView extends React.Component {
+
+  backToDeck = (deck) => {
+    this.props.navigation.dispatch(NavigationActions.reset({
+      index : 1,
+      actions : [
+        NavigationActions.navigate({
+          routeName:'DeckListView'
+        }),
+        NavigationActions.navigate({
+          routeName:'DeckView',
+          params : {deck}
+        }),
+      ]
+    }));
+  }
+
+  backToQuiz = (deck) => {
+
+    this.props.navigation.dispatch(NavigationActions.reset({
+      index : 2,
+      actions : [
+        NavigationActions.navigate({
+          routeName:'DeckListView'
+        }),
+        NavigationActions.navigate({
+          routeName:'DeckView',
+          params : {deck:deck}
+        }),
+        NavigationActions.navigate({
+          routeName:'QuizView',
+          params : {
+            deck : deck,
+            showQuestion : 0,
+            correct : 0,
+            incorrect : 0
+          }
+        }),
+      ]
+    }));
+  }
 
   render() {
 
@@ -14,18 +55,13 @@ class ScoreView extends React.Component {
       <Text style={[styles.h3]}>Incorrect : {incorrect} </Text>
 
       <TouchableHighlight style={[styles.touchableMedium, styles.touchableDefault]} onPress={()=>{
-        this.props.navigation.navigate('DeckView', {deck:deck.title});
+        this.backToDeck(deck);
       }}>
         <Text>Back to Deck</Text>
       </TouchableHighlight>
 
       <TouchableHighlight style={[styles.touchableMedium, styles.touchableDefault]} onPress={()=>{
-        this.props.navigation.navigate('QuizView', {
-          deck : deck,
-          showQuestion : 0,
-          correct : 0,
-          incorrect : 0
-        })
+        this.backToQuiz(deck);
       }}>
         <Text>Restart Quiz</Text>
       </TouchableHighlight>

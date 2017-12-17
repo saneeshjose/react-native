@@ -26,7 +26,7 @@ class DeckListView extends React.Component {
     return <View style={styles.container}>
       {Object.keys(decks).map( key => (
         <TouchableHighlight key={key} style={styles.itemContainer} onPress={()=>{
-          this.deckSelected(key);
+          this.deckSelected(decks[key]);
         }}>
           <View>
             <Text style={styles.h2}>{decks[key].title}</Text>
@@ -37,8 +37,8 @@ class DeckListView extends React.Component {
     </View>
   }
 
-  deckSelected = (key)=> {
-    this.props.navigation.navigate( 'DeckView', {deck:key});
+  deckSelected = (deck)=> {
+    this.props.navigation.navigate( 'DeckView', {deck:deck});
   }
 }
 

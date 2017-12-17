@@ -5,15 +5,11 @@ import {
 
 export default function decks(state = {}, action ) {
 
-  console.log( action );
   switch ( action.type ) {
     case ADD_DECK :
         return {
           ...state,
-          [action.title]: {
-            title : action.title,
-            questions : []
-          }
+          [action.deck.title]: action.deck
         }
 
     case ADD_QUESTION :

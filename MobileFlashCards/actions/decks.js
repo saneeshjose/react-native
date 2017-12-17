@@ -9,7 +9,7 @@ export const addQuestion = (deck, question)=>({
   question
 })
 
-export const addDeck = (title)=>({
+export const addDeck = (deck)=>({
   type : ADD_DECK,
-  title
+  deck
 })

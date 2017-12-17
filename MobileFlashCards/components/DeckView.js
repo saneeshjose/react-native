@@ -43,11 +43,9 @@ class DeckView extends React.Component {
 
 function mapStateToProps (state, ownProps) {
 
-  console.log(ownProps.navigation);
-
-  const deckKey = ownProps.navigation.state.params.deck;
+  const {deck} = ownProps.navigation.state.params;
   return {
-    deck : state[Object.keys(state).find( key => key===deckKey )]
+    deck : state[Object.keys(state).find( key => key===deck.title )]
   }
 }
 
