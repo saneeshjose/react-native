@@ -1,10 +1,22 @@
 import React from 'react'
 import {View,Text,StyleSheet,TouchableHighlight} from 'react-native'
 import {NavigationActions} from 'react-navigation'
+import {setReminder} from '../helpers'
 
 import {styles} from '../styles'
 
 class ScoreView extends React.Component {
+
+  componentDidMount = () => {
+
+    //FlashCard has been completed. Reset reminder to start from tomorrow
+    let d = new Date();
+    d.setDate(d.getDate()+1);
+    d.setHours(12);
+    d.setMinutes(15);
+
+    setReminder(d, 'hour');
+  }
 
   backToDeck = (deck) => {
     this.props.navigation.dispatch(NavigationActions.reset({

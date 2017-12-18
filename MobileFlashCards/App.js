@@ -1,6 +1,12 @@
 import React from 'react'
 import { View, Text, StatusBar, TouchableHighlight} from 'react-native'
 import {StackNavigator} from 'react-navigation'
+
+import {Provider} from 'react-redux'
+import {createStore} from 'redux'
+import {Constants} from 'expo'
+import Icon from 'react-native-vector-icons/Ionicons'
+
 import DeckListView from './components/DeckListView'
 import DeckView from './components/DeckView'
 import AddQuestionView from './components/AddQuestionView'
@@ -8,12 +14,9 @@ import QuizView from './components/QuizView'
 import ScoreView from './components/ScoreView'
 import AddDeckView from './components/AddDeckView'
 
-import {Provider} from 'react-redux'
-import {createStore} from 'redux'
-import {Constants} from 'expo'
-import Icon from 'react-native-vector-icons/Ionicons'
+import decks from './reducers/decks'
 
-import decks from './reducers/decks.js'
+import {setReminder} from './helpers'
 
 const store = createStore(decks, {
   React: {
@@ -94,6 +97,15 @@ const Stack = StackNavigator({
 })
 
 export default class App extends React.Component {
+
+  componentDidMount = ()=> {
+    //Set local notification to complete a FlashCard before 10am, starting today
+    let d = new Date();
+    d.setHours(12);
+    d.setMinutes(15);
+    setReminder(d, 'hour');
+  }
+
   render() {
     return (
       <Provider store={store}>
