@@ -99,11 +99,11 @@ const Stack = StackNavigator({
 export default class App extends React.Component {
 
   componentDidMount = ()=> {
-    //Set local notification to complete a FlashCard before 10am, starting today
+    //Set local notification to complete a FlashCard before 5pm, starting today
     let d = new Date();
-    d.setHours(12);
-    d.setMinutes(15);
-    setReminder(d, 'hour');
+    d.setHours(17);
+    d.setMinutes(0);
+    setReminder(d, 'day');
   }
 
   render() {

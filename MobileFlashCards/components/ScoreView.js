@@ -12,10 +12,10 @@ class ScoreView extends React.Component {
     //FlashCard has been completed. Reset reminder to start from tomorrow
     let d = new Date();
     d.setDate(d.getDate()+1);
-    d.setHours(12);
-    d.setMinutes(15);
+    d.setHours(17);
+    d.setMinutes(0);
 
-    setReminder(d, 'hour');
+    setReminder(d, 'day');
   }
 
   backToDeck = (deck) => {
