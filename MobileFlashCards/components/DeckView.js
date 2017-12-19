@@ -7,11 +7,9 @@ import {styles} from '../styles'
 class DeckView extends React.Component {
 
   static navigationOptions = ({navigation}) => ({
-    navigationOptions : {
-      title : 'Deck',
-      headerStyle : {
-        backgroundColor : '#a2f2d8'
-      }
+    title : 'Deck',
+    headerStyle : {
+      backgroundColor : '#a2f2d8'
     }
   })
 

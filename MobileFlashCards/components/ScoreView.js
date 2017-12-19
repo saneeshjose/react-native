@@ -8,11 +8,9 @@ import {styles} from '../styles'
 class ScoreView extends React.Component {
 
   static navigationOptions = ({navigation}) => ({
-    navigationOptions : {
-      title : 'Score Card',
-      headerStyle : {
-        backgroundColor : '#a2f2d8'
-      }
+    title : 'Score Card',
+    headerStyle : {
+      backgroundColor : '#a2f2d8'
     }
   })
 
@@ -72,8 +70,7 @@ class ScoreView extends React.Component {
     const {correct, incorrect,deck} = this.props.navigation.state.params;
 
     return <View style={styles.container}>
-      <Text style={[styles.h3]}>Correct : {correct} </Text>
-      <Text style={[styles.h3]}>Incorrect : {incorrect} </Text>
+      <Text style={styles.scoreText}> Your Score : {correct}/{correct+incorrect} </Text>
 
       <TouchableHighlight style={[styles.touchableMedium, styles.touchableDefault]} onPress={()=>{
         this.backToDeck(deck);

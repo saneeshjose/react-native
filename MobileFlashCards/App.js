@@ -25,11 +25,9 @@ const Stack = StackNavigator({
   DeckView : {
     screen : DeckView
   },
-
   AddDeckView : {
     screen : AddDeckView
   },
-
   AddQuestionView : {
     screen : AddQuestionView
   },

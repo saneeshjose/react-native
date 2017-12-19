@@ -1,16 +1,14 @@
 import React, {Component} from 'react'
-import {View, Text, StyleSheet, TextInput, TouchableHighlight} from 'react-native'
+import {View, Text, StyleSheet, TextInput, TouchableHighlight, TouchableOpacity} from 'react-native'
 
 import {styles} from '../styles'
 
 class QuizView extends Component {
 
   static navigationOptions = ({navigation}) => ({
-    navigationOptions : {
-      title : 'Quiz',
-      headerStyle : {
-        backgroundColor : '#a2f2d8'
-      }
+    title : 'Quiz',
+    headerStyle : {
+      backgroundColor : '#a2f2d8'
     }
   })
 
@@ -28,28 +26,32 @@ class QuizView extends Component {
     <Text>{correct+incorrect+1} / {deck.questions.length}</Text>
 
     {this.state.answerShown? (
-      <View>
-        <Text style={styles.h2}>{deck.questions[showQuestion].answer}</Text>
-        <TouchableHighlight onPress={()=>this.setState({answerShown:false})}>
-          <Text style={styles.h3}>Show Question</Text>
+      <View style={{
+        alignItems : 'center'
+      }}>
+        <Text style={[styles.h3]}>{deck.questions[showQuestion].answer}</Text>
+        <TouchableHighlight style={styles.touchableMedium} onPress={()=>this.setState({answerShown:false})}>
+          <Text style={styles.showQuestionText}>Show Question</Text>
         </TouchableHighlight>
       </View>
     )  : (
-      <View>
-        <Text style={styles.h2}>{deck.questions[showQuestion].question}</Text>
-        <TouchableHighlight onPress={()=>this.setState({answerShown:true})}>
-          <Text style={styles.h3}>Show Answer</Text>
+      <View style={{
+        alignItems : 'center'
+      }}>
+        <Text style={[styles.h2]}>{deck.questions[showQuestion].question}</Text>
+        <TouchableHighlight style={styles.touchableMedium} onPress={()=>this.setState({answerShown:true})}>
+          <Text style={styles.showAnswerText}>Show Answer</Text>
         </TouchableHighlight>
       </View>
     )}
 
-    <TouchableHighlight style={[styles.touchableMedium,styles.touchableSuccess]} onPress={()=>{this.nextQuestion(true)}}>
-      <Text>Correct</Text>
-    </TouchableHighlight>
+    <TouchableOpacity style={[styles.touchableMedium,styles.touchableSuccess]} onPress={()=>{this.nextQuestion(true)}}>
+      <Text style={styles.textMedium}> Correct </Text>
+    </TouchableOpacity>
 
-    <TouchableHighlight style={[styles.touchableMedium,styles.touchableDanger]} onPress={()=>{this.nextQuestion(false)}}>
-      <Text>Incorrect</Text>
-    </TouchableHighlight>
+    <TouchableOpacity style={[styles.touchableMedium,styles.touchableDanger]} onPress={()=>{this.nextQuestion(false)}}>
+      <Text style={styles.textMedium}>Incorrect</Text>
+    </TouchableOpacity>
     </View>
 
   }

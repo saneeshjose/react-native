@@ -87,5 +87,35 @@ export const styles = StyleSheet.create({
   },
   textMedium : {
     fontSize : 18
+  },
+
+  textDefault : {
+    color : 'green'
+  },
+  textWarning : {
+    color : 'orange'
+  },
+  textDanger : {
+    color : 'red'
+  },
+
+  showQuestionText : {
+    fontSize : 14,
+    color : 'red'
+  },
+
+  showAnswerText : {
+    fontSize : 14,
+    color : 'green'
+  },
+
+  scoreText : {
+    textAlign : 'center',
+    fontSize : 32,
+    padding : 8,
+    color : '#1b9b66',
+    fontWeight : 'bold',
+    marginBottom : 24
   }
+
 })
