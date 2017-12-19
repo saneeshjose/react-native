@@ -9,6 +9,7 @@ Set up Expo Development environment for React native
 
 ```
 cd MobileFlashCards
+yarn install
 yarn start
 ```
 
