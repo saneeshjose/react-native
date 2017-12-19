@@ -5,6 +5,15 @@ import {styles} from '../styles'
 
 class QuizView extends Component {
 
+  static navigationOptions = ({navigation}) => ({
+    navigationOptions : {
+      title : 'Quiz',
+      headerStyle : {
+        backgroundColor : '#a2f2d8'
+      }
+    }
+  })
+
   state = {
     answerShown : false
   }

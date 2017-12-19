@@ -18,83 +18,58 @@ import decks from './reducers/decks'
 
 import {setReminder} from './helpers'
 
-const store = createStore(decks, {
-  React: {
-    title: 'React',
-    questions: [
-      {
-        question: 'What is React?',
-        answer: 'A library for managing user interfaces'
-      },
-      {
-        question: 'Where do you make Ajax requests in React?',
-        answer: 'The componentDidMount lifecycle event'
-      }
-    ]
-  },
-  JavaScript: {
-    title: 'JavaScript',
-    questions: [
-      {
-        question: 'What is a closure?',
-        answer: 'The combination of a function and the lexical environment within which that function was declared.'
-      }
-    ]
-  }
-} );
-
 const Stack = StackNavigator({
   DeckListView : {
     screen : DeckListView
   },
   DeckView : {
-    screen : DeckView,
-    navigationOptions : {
-      title : 'Deck',
-      headerStyle : {
-        backgroundColor : '#a2f2d8'
-      }
-    }
+    screen : DeckView
   },
 
   AddDeckView : {
-    screen : AddDeckView,
-    navigationOptions : {
-      title : 'Add Deck',
-      headerStyle : {
-        backgroundColor : '#a2f2d8'
-      }
-    }
+    screen : AddDeckView
   },
 
   AddQuestionView : {
-    screen : AddQuestionView,
-    navigationOptions : {
-      title : 'Add Question',
-      headerStyle : {
-        backgroundColor : '#a2f2d8'
-      }
-    }
+    screen : AddQuestionView
   },
   QuizView : {
     screen : QuizView,
-    navigationOptions : {
-      title : 'Quiz',
-      headerStyle : {
-        backgroundColor : '#a2f2d8'
-      }
-    }
   },
   ScoreView : {
     screen : ScoreView,
-    navigationOptions : {
-      title : 'Score Card',
-      headerStyle : {
-        backgroundColor : '#a2f2d8'
-      }
-    }
   }
 })
+
+const configureStore = ()=> {
+
+   let store = createStore(decks, {
+    React: {
+      title: 'React',
+      questions: [
+        {
+          question: 'What is React?',
+          answer: 'A library for managing user interfaces'
+        },
+        {
+          question: 'Where do you make Ajax requests in React?',
+          answer: 'The componentDidMount lifecycle event'
+        }
+      ]
+    },
+    JavaScript: {
+      title: 'JavaScript',
+      questions: [
+        {
+          question: 'What is a closure?',
+          answer: 'The combination of a function and the lexical environment within which that function was declared.'
+        }
+      ]
+    }
+  } );
+
+  return store;
+}
 
 export default class App extends React.Component {
 
@@ -108,7 +83,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={configureStore()}>
         <View style={{
           flex:1
         }}>

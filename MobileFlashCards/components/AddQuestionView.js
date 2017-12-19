@@ -8,6 +8,15 @@ import {styles} from '../styles'
 
 class AddQuestionView extends Component {
 
+  static navigationOptions = ({navigation}) => ({
+    navigationOptions : {
+      title : 'Add Question',
+      headerStyle : {
+        backgroundColor : '#a2f2d8'
+      }
+    }
+  })
+
   state = {
     question : '',
     answer : ''

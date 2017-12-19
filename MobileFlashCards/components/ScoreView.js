@@ -7,6 +7,15 @@ import {styles} from '../styles'
 
 class ScoreView extends React.Component {
 
+  static navigationOptions = ({navigation}) => ({
+    navigationOptions : {
+      title : 'Score Card',
+      headerStyle : {
+        backgroundColor : '#a2f2d8'
+      }
+    }
+  })
+
   componentDidMount = () => {
 
     //FlashCard has been completed. Reset reminder to start from tomorrow
